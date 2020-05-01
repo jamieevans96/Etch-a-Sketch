@@ -5,11 +5,11 @@ body {
 }
 
 #content {
-    width: 320px;
-    height: 320px;
+    width: 960px;
+    height: 960px;
     display: grid;
-    grid-template-columns: repeat(16, 20px);
-    grid-template-rows: repeat(16, 20px);
+    grid-template-columns: repeat(16, 60px);
+    grid-template-rows: repeat(16, 60px);
     margin: 0 auto;
 }
 
@@ -17,5 +17,4 @@ body {
     background: #3bbced;
     border: solid;
     border-width: thin;
-    padding: 10px;
 }
