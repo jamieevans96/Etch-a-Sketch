@@ -54,17 +54,19 @@ function multiColor() {
     }
 }
 
-// function blackPass() {
-//     var c = document.getElementById("content").childElementCount;
+function blackPass() {
+    var c = document.getElementById("content").childElementCount;
 
-//     let x = 90;
 
-//     for (i = 1; i < (c + 1); i++) {
-//         const div = document.querySelector("sqr" + i);
 
-//         document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
-//             e.target.style.background = 'hsl(0, 0%, ' + x + '%)';
-//             x = x - 10;
-//         });
-//     }
-// }
+    for (i = 1; i < (c + 1); i++) {
+        let x = 90;
+
+        const div = document.querySelector("sqr" + i);
+
+        document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
+            e.target.style.background = 'hsl(0, 0%, ' + x + '%)';
+            x = x - 10;
+        });
+    }
+}
