@@ -2,6 +2,7 @@ const content = document.querySelector("#content");
 
     for (i = 1; i < 257; i++) {
         const div = document.createElement('div');
+        div.setAttribute('id', 'sqr' + i);
 
         div.addEventListener('mouseover', function (e) {
             e.target.style.background = 'black';
@@ -10,7 +11,15 @@ const content = document.querySelector("#content");
         content.appendChild(div);
     }
 
+
 function clearFunc() {
+
+    var c = document.getElementById("content").childElementCount;
+
+    for (i = 0; i < c; i++) {
+        var divTemp = document.getElementById("content");
+        divTemp.removeChild(divTemp.childNodes[0]);
+    }
 
     var y = prompt("number");
 
@@ -21,6 +30,9 @@ function clearFunc() {
 
     for (i = 1; i < x; i++) {
         const div = document.createElement('div');
+        div.setAttribute('id', 'sqr' + i);
+
+        div.style.background = "#3bbced";
 
         div.addEventListener('mouseover', function (e) {
             e.target.style.background = 'black';
@@ -29,3 +41,30 @@ function clearFunc() {
         content.appendChild(div);
     }
 }
+
+function multiColor() {
+    var c = document.getElementById("content").childElementCount;
+
+    for (i = 1; i < (c + 1); i++) {
+        const div = document.querySelector("sqr" + i);
+
+        document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
+            e.target.style.background = 'rgb(' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ')';
+        });
+    }
+}
+
+// function blackPass() {
+//     var c = document.getElementById("content").childElementCount;
+
+//     let x = 90;
+
+//     for (i = 1; i < (c + 1); i++) {
+//         const div = document.querySelector("sqr" + i);
+
+//         document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
+//             e.target.style.background = 'hsl(0, 0%, ' + x + '%)';
+//             x = x - 10;
+//         });
+//     }
+// }
