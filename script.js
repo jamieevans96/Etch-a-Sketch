@@ -1,72 +1,74 @@
 const content = document.querySelector("#content");
 
-    for (i = 1; i < 257; i++) {
+const submitForm = document.querySelector('#submit')
+const closeCover = document.querySelector('#close')
+const inputCover = document.querySelector('.inputCover')
+
+generateCanvas(256)
+
+function generateCanvas(x) {
+    for (let i = 0; i < x; i++) {
         const div = document.createElement('div');
-        div.setAttribute('id', 'sqr' + i);
-
-        div.addEventListener('mouseover', function (e) {
-            e.target.style.background = 'black';
+        div.addEventListener('mouseover', e => {
+            e.target.style.background = '#000';
         });
-
         content.appendChild(div);
     }
+}
 
+function openForm() {
+    inputCover.style.display = 'flex'
+}
 
-function clearFunc() {
+function closeForm() {
+    inputCover.style.display = 'none'
+}
 
-    var c = document.getElementById("content").childElementCount;
+closeCover.addEventListener('click', e => {
+    e.preventDefault();
+    closeForm();
+})
 
-    for (i = 0; i < c; i++) {
-        var divTemp = document.getElementById("content");
-        divTemp.removeChild(divTemp.childNodes[0]);
+submitForm.addEventListener('click', e => {
+    e.preventDefault();
+
+    let value = document.querySelector('#inputValue')
+    clearFunc(value.value);
+    closeForm();
+    value.value = '';
+})
+
+function clearFunc(val) {
+    let count = content.childElementCount;
+
+    for (i = 0; i < count; i++) {
+        content.removeChild(content.childNodes[0]);
     }
 
-    var y = prompt("number");
+    content.style.gridTemplateRows = `repeat(${val}, ${(100/val)}%)`;
+    content.style.gridTemplateColumns = `repeat(${val}, ${(100/val)}%)`;
 
-    document.getElementById("content").style.gridTemplateRows = "repeat(" + y + ", " + (960/y) + "px)";
-    document.getElementById("content").style.gridTemplateColumns = "repeat(" + y + ", " + (960/y) + "px)";
-
-    let x = (y * y) + 1;
-
-    for (i = 1; i < x; i++) {
-        const div = document.createElement('div');
-        div.setAttribute('id', 'sqr' + i);
-
-        div.style.background = "#3bbced";
-
-        div.addEventListener('mouseover', function (e) {
-            e.target.style.background = 'black';
-        });
-
-        content.appendChild(div);
-    }
+    generateCanvas(Math.pow(val, 2))
 }
 
 function multiColor() {
-    var c = document.getElementById("content").childElementCount;
+    generateRandom = () => Math.floor(Math.random()*256)
 
-    for (i = 1; i < (c + 1); i++) {
-        const div = document.querySelector("sqr" + i);
+    let contentCount = document.querySelectorAll('#content > div')
 
-        document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
-            e.target.style.background = 'rgb(' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ')';
-        });
-    }
+    contentCount.forEach(item => item.addEventListener('mouseover', e => {
+        e.target.style.background = `rgb(${generateRandom()}, ${generateRandom()}, ${generateRandom()})`
+    }))
 }
 
-function blackPass() {
-    var c = document.getElementById("content").childElementCount;
+function invisiblack() {
+    let contentCount = document.querySelectorAll('#content > div')
 
-
-
-    for (i = 1; i < (c + 1); i++) {
-        let x = 90;
-
-        const div = document.querySelector("sqr" + i);
-
-        document.getElementById('sqr' + i).addEventListener('mouseover', function (e) {
-            e.target.style.background = 'hsl(0, 0%, ' + x + '%)';
-            x = x - 10;
-        });
-    }
+    contentCount.forEach(item => {
+        let value = 90;
+        item.addEventListener('mouseover', e => {
+            e.target.style.background = `rgb(${value}%, ${value}%, ${value}%)`
+            value -= 10;
+        })
+    })   
 }
