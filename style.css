@@ -1,24 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: 'Roboto', serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(233,244,255,1) 0%, rgba(218,200,255,1) 100%);
+}
+
+h1 {
+    font-size: 48px;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+}
+
+h1::before, h1::after {
+    position: relative;
+    content: '';
+    width: 88%;
+    height: 2px;
+    background-color: #fff;
+    top: 10%;
+    left: 6%;
+    display: block;
+}
+
+h1::before {
+    top: -10%;
 }
 
 #content {
-    width: 960px;
-    height: 960px;
+    width: 40vw;
+    height: 40vw;
     display: grid;
-    grid-template-columns: repeat(16, 60px);
-    grid-template-rows: repeat(16, 60px);
-    margin: 0 auto;
+    grid-template-columns: repeat(16, 6.25%);
+    grid-template-rows: repeat(16, 6.25%);
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid#fff;
 }
 
-#content div {
-    background: #3bbced;
-    border: solid;
+#content > div {
+    background: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
     border-width: thin;
 }
 
+.buttons {
+    margin: 50px;
+    width: 40vw;
+    display: flex;
+    justify-content: space-around;
+}
+
 button {
-    float: left;
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #fff;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: #444;
+    text-align: center;
+    transition: all 0.2s;
+    outline: none;
+}
+
+button:hover {
+    color:#000;
+    background-color:#fff;
+}
+
+button:active {
+    color:#000;
+    background-color:#bbb;
+}
+
+.inputCover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(247, 247, 247, 0.6);
+    filter: blur(0.5);
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputCover > form {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 5px 20px;
+    background: linear-gradient(90deg, rgba(233,244,255,1) 0%, rgb(229, 216, 255) 100%);
+    border: solid #ddd 2px;
+}
+
+form label, form input, .formButtons{
+    margin: 5px 0;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formButtons button {
+    width: 100%;
+}
+
+form input {
+    padding: 4px;
+}
+
+@media (max-width: 1280px) {
+    #content {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .buttons {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 760px) {
+    #content {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .buttons {
+        width: 80vw;
+    }
 }
