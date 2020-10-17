@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+        <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Etch-a-Sketch</h1>
+    <div class='buttons'>
+        <button onclick="openForm()">Clear</button>
+        <button onclick="multiColor()">RGB</button>
+        <button onclick="invisiblack()">Invisiblack</button>
+    </div>
+    <div id="content"></div>
+    <div class='inputCover'>
+        <form> 
+            <label>Number of Rows/Columns?</label>
+            <input id='inputValue'>
+            <div class='formButtons'>
+                <button id='submit'>Submit</button>
+                <button id='close'>Close</button>
+            </div>
+        </form>
+    </div>
 
-<link rel="stylesheet" href="style.css">
-<button onclick="clearFunc()">Clear</button>
-<button onclick="multiColor()">RGB</button>
-<button onclick="blackPass()">Invisiblack</button>
-<div id="content"></div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
+</body>
 </html>
