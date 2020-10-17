@@ -38,8 +38,8 @@ h1::before {
 }
 
 #content {
-    width: 40vw;
-    height: 40vw;
+    width: 30vw;
+    height: 30vw;
     display: grid;
     grid-template-columns: repeat(16, 6.25%);
     grid-template-rows: repeat(16, 6.25%);
@@ -56,7 +56,7 @@ h1::before {
 
 .buttons {
     margin: 50px;
-    width: 40vw;
+    width: 30vw;
     display: flex;
     justify-content: space-around;
 }
@@ -127,22 +127,22 @@ form input {
 
 @media (max-width: 1280px) {
     #content {
-        width: 60vw;
-        height: 60vw;
+        width: 50vw;
+        height: 50vw;
     }
 
     .buttons {
-        width: 60vw;
+        width: 50vw;
     }
 }
 
 @media (max-width: 760px) {
     #content {
-        width: 80vw;
-        height: 80vw;
+        width: 70vw;
+        height: 70vw;
     }
 
     .buttons {
-        width: 80vw;
+        width: 70vw;
     }
 }
